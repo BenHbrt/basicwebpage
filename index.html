@@ -9,9 +9,32 @@
     <title>Basic Web Page</title>
 </head>
 <body>
-    <h1>Test Page</h1>
-    <h2>Click this button...</h2>
-    <button id="button">Click Me!</button>
-    <h2>You have clicked the button <span id="number">0</span><span id="times"> times.</span></h2>
+    <div>Where do you work?</div>
+    <input type="text" id="1stQuestionAns"/><button id="button" onclick="enterName()">Enter</button>
+    <br>
+    <div id="2ndQuestion" style="visibility:hidden;">How long have you been working at </div>
+    <script>
+        // Selecting the elements using their IDs
+        const firstQuestionAns = document.getElementById('1stQuestionAns');
+        const secondQuestion = document.getElementById('2ndQuestion');
+
+        // This variable stops the button from working multiple times
+        var usedOnce = false
+        
+        // A function which is activated by the button
+        const enterName = () => {
+            // Checks the function has not run before
+            if (usedOnce === false) {
+                // Adds a question mark to the entered text
+            const text = firstQuestionAns.value + "?";
+                // Adds the above to the question stem
+                secondQuestion.innerHTML += text;
+                // Changes the styling of the question so that it is visible
+                secondQuestion.style.visibility = "visible";
+                //Changes the usedOnce variable
+                usedOnce = true
+            }
+        }
+    </script>
 </body>
 </html>
